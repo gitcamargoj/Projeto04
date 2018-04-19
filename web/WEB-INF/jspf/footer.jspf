@@ -1,0 +1,4 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<%-- Footer --%>
+<hr><br><br><center><footer class="footerbody">GitHub do Projeto: <a href="https://github.com/junioracamargo/Projeto04">Projeto Supply</a></footer></center><br><br>       

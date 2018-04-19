@@ -1,0 +1,55 @@
+.imgdev {
+	width: 150;
+	height: 150;
+	border-style: solid;
+	border-image-width: #000000;
+	padding: 15px;
+}
+
+.navbar {
+	font-family: 'Comfortaa', cursive;
+	font-weight: bold;
+}
+
+.h5body {
+	font-family: 'Comfortaa', cursive;
+	font-weight: bold;
+	font-size: 120%;
+}
+
+.h4body {
+	font-family: 'Comfortaa', cursive;
+	font-weight: bold;
+	font-size: 140%;
+}
+
+.pbody {
+	font-family: 'Comfortaa', cursive;
+}
+
+.footerbody {
+	font-family: 'Comfortaa', cursive;
+	font-size: 120%
+}
+
+.bttbody {
+	font-family: 'Comfortaa', cursive;
+}
+
+.bannerbody {
+	width: 100%;
+	border-style: solid;
+	border-image-width: #000000;
+	padding: 0px;
+}
+
+.divOne{
+    margin-top: 15px;
+    
+}
+.botao{ 
+    margin-top: 30px;
+    margin-left:100px; 
+    padding: 20px;
+    font-size: 25px;
+}
