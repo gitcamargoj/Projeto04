@@ -15,10 +15,10 @@
                 <a class="nav-link" href="home.jsp">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="cliente.jsp">Cadastro de Cliente</a>
+                <a class="nav-link" href="clientes.jsp">Cadastro de Cliente</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="fornecedor.jsp">Cadastro de Fornecedor</a>
+                <a class="nav-link" href="fornecedores.jsp">Cadastro de Fornecedor</a>
             </li>
         </ul>
     </div>

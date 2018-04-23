@@ -1,39 +1,41 @@
-
-
+<%-- 
+    Document   : clientes
+    Created on : 21/04/2018, 00:36:21
+    Author     : junior
+--%>
 
 <%@page import="br.com.projeto04.fatecpg.poo.Bd"%>
-<%@page import="br.com.projeto04.fatecpg.poo.Fornecedor"%>
+<%@page import="br.com.projeto04.fatecpg.poo.Cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <%
-     if(request.getParameter("add")!= null){
-        Fornecedor  f = new Fornecedor();
-        f.setNome(request.getParameter("nome"));
-        f.setCnpj(request.getParameter("cnpj"));
-        f.setEmail(request.getParameter("email"));
-        f.setTelefone(request.getParameter("telefone"));
-        f.setEndereço(request.getParameter("endereco"));
-        f.setRazaoSocial(request.getParameter("razao"));
-        Bd.getFornecedores().add(f);
-        response.sendRedirect(request.getRequestURI());
-   
+    if(request.getParameter("add")!= null){
+      Cliente novoCliente = new Cliente();
+      novoCliente.setNome(request.getParameter("nome"));
+      novoCliente.setCpf(request.getParameter("cpf"));
+      novoCliente.setRg(request.getParameter("rg"));
+      novoCliente.setEmail(request.getParameter("email"));
+      novoCliente.setTelefone(request.getParameter("telefone"));
+      novoCliente.setEndereço(request.getParameter("endereco"));
+      Bd.getClientes().add(novoCliente);
+      response.sendRedirect(request.getRequestURI());
     }else if(request.getParameter("del")!=null){
       int i = Integer.parseInt(request.getParameter("i"));
-      Bd.getFornecedores().remove(i);
+      Bd.getClientes().remove(i);
       response.sendRedirect(request.getRequestURI());
     }else if(request.getParameter("alt")!=null){
       int indice = Integer.parseInt(request.getParameter("indice"));
-      Bd.getFornecedores().remove(indice);
+      Bd.getClientes().remove(indice);
       
-      Fornecedor alterarFornecedor = new Fornecedor();
-      alterarFornecedor.setNome(request.getParameter("nome_alt"));
-      alterarFornecedor.setRazaoSocial(request.getParameter("razao_alt"));
-      alterarFornecedor.setCnpj(request.getParameter("cnpj_alt"));
-      alterarFornecedor.setEmail(request.getParameter("email_alt"));
-      alterarFornecedor.setTelefone(request.getParameter("telefone_alt"));
-      alterarFornecedor.setEndereço(request.getParameter("endereco_alt"));
-      Bd.getFornecedores().add(indice, alterarFornecedor);
+      Cliente alterarCliente = new Cliente();
+      alterarCliente.setNome(request.getParameter("nome_alt"));
+      alterarCliente.setCpf(request.getParameter("cpf_alt"));
+      alterarCliente.setRg(request.getParameter("rg_alt"));
+      alterarCliente.setEmail(request.getParameter("email_alt"));
+      alterarCliente.setTelefone(request.getParameter("telefone_alt"));
+      alterarCliente.setEndereço(request.getParameter("endereco_alt"));
+      Bd.getClientes().add(indice, alterarCliente);
 
       response.sendRedirect(request.getRequestURI());
     }
@@ -41,7 +43,7 @@
 
 <html>
     <head>
-        <title>Cadastro de Fornecedores</title>
+        <title>Cadastro de Clientes</title>
         <%@include file="WEB-INF/jspf/bootstrap_meta_and_fonts.jspf"%>
     </head>
     <body>
@@ -53,13 +55,14 @@
         <center><div class="card-group">
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title h5body">Cadastro de Fornecedores</h5>
-                    <p class="card-text pbody">Insira os dados solicitados para criar uma lista de fornecedores.</p>
-                    <form action="fornecedores.jsp">
+                    <h5 class="card-title h5body">Cadastro de Clientes</h5>
+                    <p class="card-text pbody">Entre com os dados solicitados abaixo para criar uma lista de clientes.</p>
+                    <br>
+                    <form action="clientes.jsp">
                         <table>
-                            <tr><td><input class="form-control" type="text" name="nome" placeholder="Nome da Empresa"></td></tr>
-                            <tr><td><input class="form-control" type="text" name="razao" placeholder="Razão Social"></td></tr>
-                            <tr><td><input class="form-control" type="text" name="cnpj" placeholder="CNPJ"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="nome" placeholder="Nome"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="cpf" placeholder="CPF"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="rg" placeholder="RG"></td></tr>
                             <tr><td><input class="form-control" type="text" name="email" placeholder="E-mail"></td></tr>
                             <tr><td><input class="form-control" type="text" name="telefone" placeholder="Telefone"></td></tr>
                             <tr><td><input class="form-control" type="text" name="endereco" placeholder="Endereço"></td></tr>
@@ -67,17 +70,17 @@
                         <br><input class="bttbody btn btn-primary" type="submit" name="add" value="Adicionar">
                         </form>
                 </div>
-            </div>
+            </div>    
             <div class="card">    
                 <div class="card-body">
                     <h5 class="card-title h5body">Alterar Lista</h5>
-                    <p class="card-text pbody">Digite o índice do campo que deseja alterar e insira novamente os dados para gerar a alteração.</p>
-                    <form action="fornecedores.jsp">
+                    <p class="card-text pbody">Entre com o índice e os demais dados solicitados abaixo para alterar um item da lista de clientes.</p>
+                    <form action="clientes.jsp">
                         <table>
                             <tr><td><input class="form-control" type="text" name="indice" placeholder="Índice"></td></tr>
-                            <tr><td><input class="form-control" type="text" name="nome_alt" placeholder="Nome da Empresa"></td></tr>
-                            <tr><td><input class="form-control" type="text" name="razao_alt" placeholder="Razão Social"></td></tr>
-                            <tr><td><input class="form-control" type="text" name="cnpj_alt" placeholder="CNPJ"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="nome_alt" placeholder="Nome"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="cpf_alt" placeholder="CPF"></td></tr>
+                            <tr><td><input class="form-control" type="text" name="rg_alt" placeholder="RG"></td></tr>
                             <tr><td><input class="form-control" type="text" name="email_alt" placeholder="E-mail"></td></tr>
                             <tr><td><input class="form-control" type="text" name="telefone_alt" placeholder="Telefone"></td></tr>
                             <tr><td><input class="form-control" type="text" name="endereco_alt" placeholder="Endereço"></td></tr>
@@ -93,9 +96,9 @@
             <thead>
                 <tr>
                     <th scope="col">Índice</th>
-                    <th scope="col">Empresa</th>
-                    <th scope="col">Razaão Social</th>
-                    <th scope="col">CNPJ</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">CPF</th>
+                    <th scope="col">RG</th>
                     <th scope="col">E-mail</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço</th>
@@ -103,17 +106,17 @@
                 </tr>
             </thead>
 
-            <%for (int i = 0; i < Bd.getFornecedores().size(); i++) {%>
+            <%for (int i = 0; i < Bd.getClientes().size(); i++) {%>
 
             <tbody>
                 <tr>
                     <td><%= i %></td>
-                    <td><%= Bd.getFornecedores().get(i).getNome() %></td>
-                    <td><%= Bd.getFornecedores().get(i).getRazaoSocial() %></td>
-                    <td><%= Bd.getFornecedores().get(i).getCnpj() %></td>
-                    <td><%= Bd.getFornecedores().get(i).getEmail() %></td>
-                    <td><%= Bd.getFornecedores().get(i).getTelefone() %></td>
-                    <td><%= Bd.getFornecedores().get(i).getEndereço() %></td>
+                    <td><%= Bd.getClientes().get(i).getNome() %></td>
+                    <td><%= Bd.getClientes().get(i).getCpf() %></td>
+                    <td><%= Bd.getClientes().get(i).getRg() %></td>
+                    <td><%= Bd.getClientes().get(i).getEmail() %></td>
+                    <td><%= Bd.getClientes().get(i).getTelefone() %></td>
+                    <td><%= Bd.getClientes().get(i).getEndereço() %></td>
                     <td>
                         <form>
                             <input type="hidden" name="i" value="<%= i %>"/>
