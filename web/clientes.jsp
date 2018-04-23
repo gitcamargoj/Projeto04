@@ -91,7 +91,7 @@ jQuery(function($){
 function validacao_alt(){
         
    var formulario_alt = document.forms ["formalt"];
-   var cnpj_alt = formulario_alt.cnpj_alt.value;
+   var cpf_alt = formulario_alt.cpf_alt.value;
    var endereco_alt = formulario_alt.endereco_alt.value;
    var email_alt = formulario_alt.email_alt.value;
    var telefone_alt = formulario_alt.telefone_alt.value;
