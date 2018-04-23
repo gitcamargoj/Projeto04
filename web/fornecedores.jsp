@@ -50,7 +50,7 @@ jQuery(function($){
 
    $("#cnpj").mask("99.999.999/9999-99");
    $("#cnpj_alt").mask("99.999.999/9999-99");
-   $("#telefone_alt").mask("99.999.999/9999-99"); 
+   $("#telefone_alt").mask("(99) 9999-9999"); 
    $("#telefone").mask("(99) 9999-9999");
    
 });
