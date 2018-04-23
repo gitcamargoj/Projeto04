@@ -43,8 +43,8 @@
 <script src="http://digitalbush.com/files/jquery/maskedinput/rc3/jquery.maskedinput.js" type="text/javascript"></script>
 <script>
 jQuery(function($){
-   $("#cpj").mask("99.999.999-99");
-   $("#cpj_alt").mask("99.999.999-99");
+   $("#cpf").mask("99.999.999-99");
+   $("#cpf_alt").mask("99.999.999-99");
    $("#telefone_alt").mask("(99) 9999-9999"); 
    $("#telefone").mask("(99) 9999-9999");
    $("rg").mask("99.999.999-9");
