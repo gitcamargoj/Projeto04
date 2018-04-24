@@ -99,7 +99,7 @@ function validacao_alt(){
    var nome_alt = formulario_alt.nome_alt.value;
    var erro = false;
   
-  if(cnpj_alt == ""){
+  if(cpf_alt == ""){
        erro = true;
    }
   if(endereco_alt == ""){
