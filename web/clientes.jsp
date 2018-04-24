@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%
+<%  try {
     if(request.getParameter("add")!= null){
       Cliente novoCliente = new Cliente();
       novoCliente.setNome(request.getParameter("nome"));
@@ -33,7 +33,9 @@
 
       response.sendRedirect(request.getRequestURI());
     }
-%>   
+    }catch(Exception ex) { %> 
+        <script>alert("Não existe valor há ser alterado");</script>
+    <% } %>
 
 <html>
     <head>
@@ -45,10 +47,10 @@
 jQuery(function($){
    $("#cpf").mask("99.999.999-99");
    $("#cpf_alt").mask("99.999.999-99");
-   $("#telefone_alt").mask("(99) 9999-9999"); 
-   $("#telefone").mask("(99) 9999-9999");
-   $("rg").mask("99.999.999-9");
-   $("rg_alt").mask("99.999.999-9");
+   $("#telefone_alt").mask("(99) 99999-9999"); 
+   $("#telefone").mask("(99) 99999-9999");
+   $("#rg").mask("99.999.999-9");
+   $("#rg_alt").mask("99.999.999-9");
    
 });
     function validacao(){

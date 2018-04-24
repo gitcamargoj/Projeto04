@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<%
+<%   try {
      if(request.getParameter("add")!= null){
         Fornecedor  f = new Fornecedor();
         f.setNome(request.getParameter("nome"));
@@ -37,7 +37,9 @@
 
       response.sendRedirect(request.getRequestURI());
     }
-%>   
+    }catch(Exception ex) { %> 
+            <script>alert("Não existe valor há ser alterado");</script>
+        <% } %>  
 
 <html>
     <head>
